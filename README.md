@@ -1,1 +1,1 @@
-# bookbot
+Boot.dev project, a new git project
