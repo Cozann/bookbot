@@ -32,7 +32,7 @@ def charCount(string):  ##char dict needs to say Char: value, Num: value
     return dictOfChar_string
 
 
-def wordCount(StringArray):
+def wordCount(stringArray):
     DictOfWords = {}
     
     
