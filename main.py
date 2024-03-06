@@ -30,6 +30,11 @@ def charCount(string):  ##char dict needs to say Char: value, Num: value
     dictOfChar_string.sort(reverse=True, key=sort_on) # sorting list of dicts based on value of "Num" key
     
     return dictOfChar_string
+
+
+def wordCount(StringArray):
+    DictOfWords = {}
+    
     
 def sort_on(dict):
     return dict["Num"]
