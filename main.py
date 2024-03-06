@@ -5,12 +5,17 @@ def main():
     lowered_string = file_contents.lower()  # takes all text and lower cases it
     words = lowered_string.split()  #not used currently
     charDict = charCount(lowered_string)
+    wordDict = wordCount(words)
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{len(words)} words found in the document")
     print("")
     for each in charDict:
         print(f"the '{each["Char"]}' character was found {each["Num"]} times ")
-
+    print("")
+    print("--- Most used Words used atleast 50 times ---")
+    for each in wordDict:
+        print(f"the word '{each["Word"]}' was used {each["Num"]} times ")
+    print("") 
     print("--- End Report ---")
     
 def charCount(string):  ##char dict needs to say Char: value, Num: value
@@ -34,6 +39,20 @@ def charCount(string):  ##char dict needs to say Char: value, Num: value
 
 def wordCount(stringArray):
     DictOfWords = {}
+    StringOfDictWords = []
+    for word in stringArray:
+        if word.isalnum():
+            if word in DictOfWords:
+                DictOfWords[word] += 1
+            else:
+                DictOfWords[word] = 1
+
+    for key, value in DictOfWords.items():
+            if value > 49:
+                StringOfDictWords.append({"Word": key, "Num": value})
+    
+    StringOfDictWords.sort(reverse=True, key=sort_on)
+    return StringOfDictWords
     
     
 def sort_on(dict):
